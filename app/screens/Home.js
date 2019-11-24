@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import EstanteComponent from "../components/EstanteComponent.js"
 export default class Home extends PureComponent {
   constructor(props) {
@@ -7,18 +7,21 @@ export default class Home extends PureComponent {
     this.state = {
     };
   }
-
   render() {
+    const estante = <EstanteComponent />;
+    const vazio = <Text style={styles.textVazio}>Estoque vazio</Text>;
     return (
-      <View>
-        <EstanteComponent style={styles.estante}/>
-      </View>
+      <ScrollView>
+        {this.props.isEstoqueItem ? vazio : estante}
+      </ScrollView>
     );
   }
 }
 const styles = {
-  estante: {
+  textVazio: {
+    textAlign: "center",
     paddingTop: 50,
-    paddingBottom: 20,
-  },
+    fontSize: 20,
+    fontFamily: "Helvetica"
+  }
 }
