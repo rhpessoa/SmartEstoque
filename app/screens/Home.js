@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import {  View, Text } from 'react-native';
-
+import { View } from 'react-native';
+import EstanteComponent from "../components/EstanteComponent.js"
 export default class Home extends PureComponent {
   constructor(props) {
     super(props);
@@ -11,8 +11,14 @@ export default class Home extends PureComponent {
   render() {
     return (
       <View>
-        <Text> componentText </Text>
+        <EstanteComponent style={styles.estante}/>
       </View>
     );
   }
+}
+const styles = {
+  estante: {
+    paddingTop: 50,
+    paddingBottom: 20,
+  },
 }
